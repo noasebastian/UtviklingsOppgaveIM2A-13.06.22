@@ -1,0 +1,14 @@
+#body {
+    height: 100%;
+    width: 100%;
+   background-color: dimgray;
+}
+#titel {
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+}
+#ansatte {
+    display: flex;
+    justify-content: center;
+}
