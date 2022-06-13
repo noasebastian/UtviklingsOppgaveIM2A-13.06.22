@@ -1,30 +1,21 @@
+
 <?php
-   $dbhost = 'localhost:3036';
-   $dbuser = 'root';
-   $dbpass = '';
-   
-   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-   
-   if(! $conn ) {
-      die('Could not connect: ' . mysql_error());
-   }
-   
-   $sql = 'SELECT Brukerid, Fornavn, Etternavn, Bilde, Mobil, Jobbtelefon, Epost, Stilling, Avdeling FROM table1';
-   mysql_select_db('mydb');
-   $retval = mysql_query( $sql, $conn );
-   
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
-   }
-   
-   ## while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
-   ##   echo "EMP ID :{$row['emp_id']}  <br> ".
-   ##      "EMP NAME : {$row['emp_name']} <br> ".
-   ##      "EMP SALARY : {$row['emp_salary']} <br> ".
-   ##      "--------------------------------<br>";
-   ##}
-   
-   echo "Fetched data successfully\n";
-   
-   mysql_close($conn);
+$servername = "localhost"; // IP på SQL server
+$username = "root"; // Brukernavn
+$password = ""; // Superbra Passord
+$dbname = "myDB"; // Database Navn
+
+// Create connection
+$conn = new mysqli($servername, $username,$password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error); // Hvis tilkoblingen feilet
+}
+
+$sql = "SELECT Brukerid, Fornavn, Etternavn, Bilde, Mobil, Jobbtelefon, Epost, Stilling, Avdeling FROM table1"; // Hva vi skal hente
+$result = $conn->query($sql); // Henter resultatet
+
+
+
+$conn->close(); // Lukke tilkoblingen til SQL server
 ?>

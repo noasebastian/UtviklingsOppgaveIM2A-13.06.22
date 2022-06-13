@@ -1,3 +1,4 @@
+
 #body {
     height: 100%;
     width: 100%;
@@ -11,4 +12,24 @@
 #ansatte {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+    
+}
+.ansattbox {
+    display: flex;
+    flex-direction: column;
+    padding : 0;
+    margin : 0;
+}
+.ansattbox1 {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+}
+.bilde {
+    display: flex;
+    justify-content: center;
+}
+.border {
+    margin: 5px;
 }
