@@ -16,6 +16,7 @@
 }
 
 .dropdown {
+  margin-top:20px;
   position: relative;
   display: inline-block;
 }
@@ -103,7 +104,7 @@
                     echo "<h5> $brukerid </h5>";
                    echo "</div>";
                    echo      "<div class='dropdown'>"; // Dropdown meny'en
-                   echo            "<button class='dropbtn'>Dropdown</button>";
+                   echo            "<button class='dropbtn'>Bytt Avdeling</button>";
                    echo            "<div class='dropdown-content'>";
                    echo                "<form action='/dropdown.php' method='get'>" ;
                    echo                     "<input type='radio' id='nord' name='avdeling' value='Nord'>"; // Sender hvilken avdeling som brukeren velger
@@ -150,6 +151,7 @@
             <input type="text" id="avdeling" name="avdeling" required><br>
             <input type="submit" value="Submit"> <!-- submit knappen  (alle vet hva den gjør) -->
             </form>
+
             <h1>Rediger medlem info</h1> <!-- hvor man redigerer brukerens informasjon -->
             <form action="/Edit.php" method="get"> 
             <label for="brukerid">Brukerid:</label>
@@ -168,7 +170,16 @@
             <input type="text" id="stilling" name="stilling" required><br>
             <label for="avdeling">Avdeling:</label>
             <input type="text" id="avdeling" name="avdeling" required><br>
-            <input type="submit" value="Submit"> 
+            <input type="submit" value="Submit">
+            </form>
+
+            <h1>Slett medlem</h1>
+            <form action="/Del.php" method="get"> 
+            <label for="brukerid">Brukerid:</label>
+            <input type="text"  name="brukerid" required><br> 
+            <input type="submit" value="Submit">
+            </form>
+            
     </div>
  
     <!--Skrever av mesterkoderen LORD NOA ødelegeren av python, beseireren av PHP, Kongen av alle kodespråk som har verdi. -->
