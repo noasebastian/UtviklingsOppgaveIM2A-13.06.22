@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansatte</title>
-    <style> 
+    <style>
+    
       .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -133,6 +134,8 @@
              <?php  ?>
              
         </div> 
+        <div id="bot">
+          <div class="bot1">
               <h1>Legg til Medlem.</h1>  <!-- Skjema for og legge til folk til SQL databasen -->
             <form action="/Send.php" method="get">  <!-- hvor den skal sende verdiene og hvilken metode den skal bruke -->
             <label for="fname">Fornavn:</label>
@@ -151,7 +154,8 @@
             <input type="text" id="avdeling" name="avdeling" required><br>
             <input type="submit" value="Submit"> <!-- submit knappen  (alle vet hva den gjør) -->
             </form>
-
+          </div>
+          <div class="bot1">
             <h1>Rediger medlem info</h1> <!-- hvor man redigerer brukerens informasjon -->
             <form action="/Edit.php" method="get"> 
             <label for="brukerid">Brukerid:</label>
@@ -172,14 +176,16 @@
             <input type="text" id="avdeling" name="avdeling" required><br>
             <input type="submit" value="Submit">
             </form>
-
-            <h1>Slett medlem</h1>
+            </div>
+            <div class="bot1">
+            <h1>Slett medlemer</h1> <!-- Sletter medlemer -->
             <form action="/Del.php" method="get"> 
             <label for="brukerid">Brukerid:</label>
             <input type="text"  name="brukerid" required><br> 
             <input type="submit" value="Submit">
             </form>
-            
+            </div>
+            </div>     
     </div>
  
     <!--Skrever av mesterkoderen LORD NOA ødelegeren av python, beseireren av PHP, Kongen av alle kodespråk som har verdi. -->

@@ -14,7 +14,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "DELETE FROM table1 WHERE Brukerid='$brukerid'"; // Oppdaterer hvilken avdeling brukeren har
+$sql = "DELETE FROM table1 WHERE Brukerid='$brukerid'"; // Sletter brukerdataen
 
 if ($conn->query($sql) === TRUE) {
   echo "Record updated successfully";
