@@ -1,6 +1,6 @@
 <?php 
-$brukerid = $_GET['bruker'];
-$avdeling = $_GET['avdeling'];
+$brukerid = $_GET['bruker']; // Henter Brukerid
+$avdeling = $_GET['avdeling']; // Henter hvilken avdeling brukeren skal byttes til
 
 
 
@@ -16,7 +16,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE table1 SET Avdeling = '$avdeling' WHERE Brukerid='$brukerid'";
+$sql = "UPDATE table1 SET Avdeling = '$avdeling' WHERE Brukerid='$brukerid'"; // Oppdaterer hvilken avdeling brukeren har
 
 if ($conn->query($sql) === TRUE) {
   echo "Record updated successfully";

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansatte</title>
-    <style>
+    <style> 
       .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -19,7 +19,7 @@
   position: relative;
   display: inline-block;
 }
-
+ 
 .dropdown-content {
   display: none;
   position: absolute;
@@ -102,16 +102,16 @@
                     echo "<h5> Brukerid: </h5>";
                     echo "<h5> $brukerid </h5>";
                    echo "</div>";
-                   echo      "<div class='dropdown'>";
+                   echo      "<div class='dropdown'>"; // Dropdown meny'en
                    echo            "<button class='dropbtn'>Dropdown</button>";
                    echo            "<div class='dropdown-content'>";
                    echo                "<form action='/dropdown.php' method='get'>" ;
-                   echo                     "<input type='radio' id='nord' name='avdeling' value='Nord'>";
+                   echo                     "<input type='radio' id='nord' name='avdeling' value='Nord'>"; // Sender hvilken avdeling som brukeren velger
                    echo                     "<label for='nord'>Nord</label><br>";
                    echo                     "<input type='radio' id='øst' name='avdeling' value='Øst'>";
                    echo                     "<label for='øst'>Øst</label><br>";
                    echo                     "<input type='radio' id='vest' name='avdeling' value='Vest'>";
-                   echo                     "<input type='hidden' name='bruker' value='$brukerid'>";
+                   echo                     "<input type='hidden' name='bruker' value='$brukerid'>"; // Sender brukerens id
                    echo                     "<label for='vest'>Vest</label><br>";
                    echo                "<input type='submit' value='Submit'>" ;
                    echo                "</form>";
@@ -150,7 +150,7 @@
             <input type="text" id="avdeling" name="avdeling" required><br>
             <input type="submit" value="Submit"> <!-- submit knappen  (alle vet hva den gjør) -->
             </form>
-            <h1>Rediger medlem info</h1>
+            <h1>Rediger medlem info</h1> <!-- hvor man redigerer brukerens informasjon -->
             <form action="/Edit.php" method="get"> 
             <label for="brukerid">Brukerid:</label>
             <input type="text"  name="brukerid" required><br> 
@@ -171,6 +171,6 @@
             <input type="submit" value="Submit"> 
     </div>
  
-    
+    <!--Skrever av mesterkoderen LORD NOA ødelegeren av python, beseireren av PHP, Kongen av alle kodespråk som har verdi. -->
 </body>
 </html>
