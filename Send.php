@@ -1,5 +1,5 @@
 <?php
-$fornavn = $_GET['fname'];
+$fornavn = $_GET['fname']; // henter variablene fra index.php
 $etternavn = $_GET['lname'];
 $mobil = $_GET['mobil'];
 $jobbtelefon = $_GET['jobbtelefon'];
@@ -19,8 +19,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-$sql = "INSERT INTO table1 (Fornavn, Etternavn, Mobil, Jobbtelefon, Epost, Stilling, Avdeling,Bilde)
+// setter variablene inn i tabellen
+$sql = "INSERT INTO table1 (Fornavn, Etternavn, Mobil, Jobbtelefon, Epost, Stilling, Avdeling,Bilde) 
 VALUES ('$fornavn', '$etternavn', '$mobil','$jobbtelefon','$epost','$stilling','$avdeling','$bilde')";
 
 if ($conn->query($sql) === TRUE) {
@@ -29,7 +29,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
+$conn->close(); // lukker tilkoblingen
 
 
 

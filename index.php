@@ -6,6 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansatte</title>
+    <style>
+      .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
 </head>
 <body>
     <?php
@@ -31,6 +67,7 @@
                     $jobbtelefon = $row['Jobbtelefon'];
                     $epost = $row['Epost'];
                     $avdeling = $row['Avdeling']; 
+                    $brukerid = $row['Brukerid'];
                      echo "<div class='border'>"; // Lager ny div
                     echo "<div class ='ansattbox'> ";
                     echo  "<div class='bilde'>";
@@ -42,7 +79,7 @@
                      echo "</div>";
                      echo "<div class = 'ansattbox1'>";
                       echo   "<h4>Navn:</h4>";
-                     echo "<h4> $fornavn </h4>";
+                     echo "<h4> $fornavn </h4>"; 
                      echo "<h4> - $etternavn </h4>"; 
                    echo   "</div>";
                    echo   "<div class = 'ansattbox1'>";
@@ -61,6 +98,26 @@
                      echo "<h4>Avdeling:</h4>";
                      echo "<h4> $avdeling </h4>";
                     echo "</div>" ;
+                    echo "<div class = 'ansattbox1'>";
+                    echo "<h5> Brukerid: </h5>";
+                    echo "<h5> $brukerid </h5>";
+                   echo "</div>";
+                   echo      "<div class='dropdown'>";
+                   echo            "<button class='dropbtn'>Dropdown</button>";
+                   echo            "<div class='dropdown-content'>";
+                   echo                "<form action='/dropdown.php' method='get'>" ;
+                   echo                     "<input type='radio' id='nord' name='avdeling' value='Nord'>";
+                   echo                     "<label for='nord'>Nord</label><br>";
+                   echo                     "<input type='radio' id='øst' name='avdeling' value='Øst'>";
+                   echo                     "<label for='øst'>Øst</label><br>";
+                   echo                     "<input type='radio' id='vest' name='avdeling' value='Vest'>";
+                   echo                     "<input type='hidden' name='bruker' value='$brukerid'>";
+                   echo                     "<label for='vest'>Vest</label><br>";
+                   echo                "<input type='submit' value='Submit'>" ;
+                   echo                "</form>";
+                   echo            "</div>";
+                   echo        "</div>";
+
                     echo "</div>";
                     echo "</div>";
                 }
@@ -73,12 +130,14 @@
                 
 
              <?php  ?>
-        </div>
-            <form action="/Send.php" method="get">
+             
+        </div> 
+              <h1>Legg til Medlem.</h1>  <!-- Skjema for og legge til folk til SQL databasen -->
+            <form action="/Send.php" method="get">  <!-- hvor den skal sende verdiene og hvilken metode den skal bruke -->
             <label for="fname">Fornavn:</label>
             <input type="text"  name="fname" required><br>
             <label for="lname">Etternavn:</label>
-            <input type="text"  name="lname" required><br>
+            <input type="text"  name="lname" required><br> <!-- viktig og ha required slik at all info kommer inn i databasen -->
             <label for="mobil">Mobil:</label>
             <input type="number" id="mobil" name="mobil" required><br>
             <label for="jobbtelefon">Jobbtelefon:</label>
@@ -89,8 +148,27 @@
             <input type="text" id="stilling" name="stilling" required><br>
             <label for="avdeling">Avdeling:</label>
             <input type="text" id="avdeling" name="avdeling" required><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit"> <!-- submit knappen  (alle vet hva den gjør) -->
             </form>
+            <h1>Rediger medlem info</h1>
+            <form action="/Edit.php" method="get"> 
+            <label for="brukerid">Brukerid:</label>
+            <input type="text"  name="brukerid" required><br> 
+            <label for="fname">Fornavn:</label>
+            <input type="text"  name="fname" required><br>
+            <label for="lname">Etternavn:</label>
+            <input type="text"  name="lname" required><br> 
+            <label for="mobil">Mobil:</label>
+            <input type="number" id="mobil" name="mobil" required><br>
+            <label for="jobbtelefon">Jobbtelefon:</label>
+            <input type="number" id="jobbtelefon" name="jobbtelefon" required><br>
+            <label for="epost">Epost:</label>
+            <input type="text" id="epost" name="epost" required><br>
+            <label for="stilling">Stilling:</label>
+            <input type="text" id="stilling" name="stilling" required><br>
+            <label for="avdeling">Avdeling:</label>
+            <input type="text" id="avdeling" name="avdeling" required><br>
+            <input type="submit" value="Submit"> 
     </div>
  
     
