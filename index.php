@@ -70,6 +70,7 @@
                     $epost = $row['Epost'];
                     $avdeling = $row['Avdeling']; 
                     $brukerid = $row['Brukerid'];
+                    
                      echo "<div class='border'>"; // Lager ny div
                     echo "<div class ='ansattbox'> ";
                     echo  "<div class='bilde'>";
@@ -122,6 +123,7 @@
 
                     echo "</div>";
                     echo "</div>";
+                    
                 }
               } else {
                 echo "0 results";
@@ -150,16 +152,44 @@
             <input type="text" id="epost" name="epost" required><br>
             <label for="stilling">Stilling:</label>
             <input type="text" id="stilling" name="stilling" required><br>
-            <label for="avdeling">Avdeling:</label>
-            <input type="text" id="avdeling" name="avdeling" required><br>
+            <input type='radio' id='nord' name='avdeling' value='Nord' require>
+            <label for='nord'>Nord</label><br>
+            <input type='radio' id='øst' name='avdeling' value='Øst' require>
+            <label for='øst'>Øst</label><br>
+            <input type='radio' id='vest' name='avdeling' value='Vest'require>
+            <label for='vest'>Vest</label><br>
             <input type="submit" value="Submit"> <!-- submit knappen  (alle vet hva den gjør) -->
             </form>
           </div>
           <div class="bot1">
             <h1>Rediger medlem info</h1> <!-- hvor man redigerer brukerens informasjon -->
-            <form action="/Edit.php" method="get"> 
-            <label for="brukerid">Brukerid:</label>
-            <input type="text"  name="brukerid" required><br> 
+            <form action="/Edit.php" method="get">
+            <select id='brukerid' name='brukerid'>
+            <?php
+              $servername = "localhost"; // IP på SQL server
+              $username = "root"; // Brukernavn
+              $password = ""; // Superbra Passord
+              $dbname = "myDB"; // Database Navn
+              // Create connection
+              $conn = new mysqli($servername, $username,$password, $dbname);
+              // Check connection
+              if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error); // Hvis tilkoblingen feilet
+              }
+              $sql = "SELECT Brukerid, Fornavn, Etternavn FROM table1"; // Hva vi skal hente
+              $result = $conn->query($sql); // Henter resultatet
+              $conn->close(); // Lukke tilkoblingen til SQL server  
+            while($row = $result->fetch_assoc()) {
+              $fornavn = $row['Fornavn'];
+              $etternavn = $row['Etternavn'];
+              $brukerid =$row['Brukerid'];
+              
+
+            echo "<option value='$brukerid'>$fornavn - $etternavn</option>"; // Lager liste med alle ansatte!
+            } 
+            ?>   
+            </select>
+            <br>
             <label for="fname">Fornavn:</label>
             <input type="text"  name="fname" required><br>
             <label for="lname">Etternavn:</label>
@@ -172,8 +202,12 @@
             <input type="text" id="epost" name="epost" required><br>
             <label for="stilling">Stilling:</label>
             <input type="text" id="stilling" name="stilling" required><br>
-            <label for="avdeling">Avdeling:</label>
-            <input type="text" id="avdeling" name="avdeling" required><br>
+            <input type='radio' id='nord' name='avdeling' value='Nord' require>
+            <label for='nord'>Nord</label><br>
+            <input type='radio' id='øst' name='avdeling' value='Øst' require>
+            <label for='øst'>Øst</label><br>
+            <input type='radio' id='vest' name='avdeling' value='Vest'require>
+            <label for='vest'>Vest</label><br>
             <input type="submit" value="Submit">
             </form>
             </div>

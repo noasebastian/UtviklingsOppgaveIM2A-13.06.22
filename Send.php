@@ -6,7 +6,7 @@ $jobbtelefon = $_GET['jobbtelefon'];
 $epost = $_GET['epost'];
 $stilling = $_GET['stilling'];
 $avdeling = $_GET['avdeling'];
-$bilde = "bilder/temp.png";
+$bilde = "bilder/$etternavn.jpg";
 
 $servername = "localhost"; // IP på SQL server
 $username = "root"; // Brukernavn
